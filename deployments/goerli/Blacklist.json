@@ -1,0 +1,1709 @@
+{
+  "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_admin",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_updater",
+          "type": "address"
+        },
+        {
+          "internalType": "address[]",
+          "name": "_blacklist",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_account",
+          "type": "address"
+        }
+      ],
+      "name": "Blacklisted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "previousAdminRole",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "newAdminRole",
+          "type": "bytes32"
+        }
+      ],
+      "name": "RoleAdminChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "sender",
+          "type": "address"
+        }
+      ],
+      "name": "RoleGranted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "sender",
+          "type": "address"
+        }
+      ],
+      "name": "RoleRevoked",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_account",
+          "type": "address"
+        }
+      ],
+      "name": "UnBlacklisted",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "DEFAULT_ADMIN_ROLE",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "UPDATER_ROLE",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "newBlacklistEntries",
+          "type": "address[]"
+        }
+      ],
+      "name": "addToBlacklist",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "blacklist",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "blacklistLength",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getRoleAdmin",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "getRoleMember",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getRoleMemberCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "grantRole",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "hasRole",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "isBlacklisted",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "blacklistEntriesToRemove",
+          "type": "address[]"
+        }
+      ],
+      "name": "removeFromBlacklist",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "renounceRole",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "revokeRole",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "addressesToAdd",
+          "type": "address[]"
+        },
+        {
+          "internalType": "address[]",
+          "name": "addressesToRemove",
+          "type": "address[]"
+        }
+      ],
+      "name": "updateBlacklist",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+  "receipt": {
+    "to": null,
+    "from": "0xa52422BB8c29E4d55243d310fB6BAe793162452e",
+    "contractAddress": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+    "transactionIndex": 83,
+    "gasUsed": "6487289",
+    "logsBloom": "0x0080000480000000001808018201100000000010000a02080200001800001220000800901122011080000810000148241420000100080214000000000400004000000000110020000120010000800012808010000013a00102208000400000010400900002400000001003000042080001810a2001010000000000100004c004001000000040000040442702001010004010000004100001180082020008222010d8a1200042500000000004010014000280040300040b22005010c020000040520980002006092004000090000201000948c0100008c0810100120100006201040050201800011a200024400045480000000010001080840000002000204200",
+    "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f",
+    "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+    "logs": [
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d",
+          "0x73e573f9566d61418a34d5de3ff49360f9c51fec37f7486551670290f6285dab",
+          "0x000000000000000000000000a52422bb8c29e4d55243d310fb6bae793162452e",
+          "0x000000000000000000000000a52422bb8c29e4d55243d310fb6bae793162452e"
+        ],
+        "data": "0x",
+        "logIndex": 148,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d",
+          "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "0x000000000000000000000000a52422bb8c29e4d55243d310fb6bae793162452e",
+          "0x000000000000000000000000a52422bb8c29e4d55243d310fb6bae793162452e"
+        ],
+        "data": "0x",
+        "logIndex": 149,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000098b716b8aaf21512996dc57eb0615e2383e2f96"
+        ],
+        "data": "0x",
+        "logIndex": 150,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000a0e1c89ef1a489c9c7de96311ed5ce5d32c20e4b"
+        ],
+        "data": "0x",
+        "logIndex": 151,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x0000000000000000000000003cffd56b47b7b41c56258d9c7731abadc360e073"
+        ],
+        "data": "0x",
+        "logIndex": 152,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x00000000000000000000000053b6936513e738f44fb50d2b9476730c0ab3bfc1"
+        ],
+        "data": "0x",
+        "logIndex": 153,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x00000000000000000000000035fb6f6db4fb05e6a4ce86f2c93691425626d4b1"
+        ],
+        "data": "0x",
+        "logIndex": 154,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000f7b31119c2682c88d88d455dbb9d5932c65cf1be"
+        ],
+        "data": "0x",
+        "logIndex": 155,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x0000000000000000000000003e37627deaa754090fbfbb8bd226c1ce66d255e9"
+        ],
+        "data": "0x",
+        "logIndex": 156,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x00000000000000000000000008723392ed15743cc38513c4925f5e6be5c17243"
+        ],
+        "data": "0x",
+        "logIndex": 157,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x0000000000000000000000007f367cc41522ce07553e823bf3be79a889debe1b"
+        ],
+        "data": "0x",
+        "logIndex": 158,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000d882cfc20f52f2599d84b8e8d58c7fb62cfe344b"
+        ],
+        "data": "0x",
+        "logIndex": 159,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000901bb9583b24d97e995513c6778dc6888ab6870e"
+        ],
+        "data": "0x",
+        "logIndex": 160,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000a7e5d5a720f06526557c513402f2e6b5fa20b008"
+        ],
+        "data": "0x",
+        "logIndex": 161,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x0000000000000000000000009f4cda013e354b8fc285bf4b9a60460cee7f7ea9"
+        ],
+        "data": "0x",
+        "logIndex": 162,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x0000000000000000000000003cbded43efdaf0fc77b9c55f6fc9988fcc9b757d"
+        ],
+        "data": "0x",
+        "logIndex": 163,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000fec8a60023265364d066a1212fde3930f6ae8da7"
+        ],
+        "data": "0x",
+        "logIndex": 164,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x0000000000000000000000007ff9cfad3877f21d41da833e2f775db0569ee3d9"
+        ],
+        "data": "0x",
+        "logIndex": 165,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x0000000000000000000000008589427373d6d84e98730d7795d8f6f8731fda16"
+        ],
+        "data": "0x",
+        "logIndex": 166,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000722122df12d4e14e13ac3b6895a86e84145b6967"
+        ],
+        "data": "0x",
+        "logIndex": 167,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000dd4c48c0b24039969fc16d1cdf626eab821d3384"
+        ],
+        "data": "0x",
+        "logIndex": 168,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000d90e2f925da726b50c4ed8d0fb90ad053324f31b"
+        ],
+        "data": "0x",
+        "logIndex": 169,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000d96f2b1c14db8458374d9aca76e26c3d18364307"
+        ],
+        "data": "0x",
+        "logIndex": 170,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x0000000000000000000000004736dcf1b7a3d580672cce6e7c65cd5cc9cfba9d"
+        ],
+        "data": "0x",
+        "logIndex": 171,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000d4b88df4d29f5cedd6857912842cff3b20c8cfa3"
+        ],
+        "data": "0x",
+        "logIndex": 172,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000910cbd523d972eb0a6f4cae4618ad62622b39dbf"
+        ],
+        "data": "0x",
+        "logIndex": 173,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000a160cdab225685da1d56aa342ad8841c3b53f291"
+        ],
+        "data": "0x",
+        "logIndex": 174,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000fd8610d20aa15b7b2e3be39b396a1bc3516c7144"
+        ],
+        "data": "0x",
+        "logIndex": 175,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000f60dd140cff0706bae9cd734ac3ae76ad9ebc32a"
+        ],
+        "data": "0x",
+        "logIndex": 176,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x00000000000000000000000022aaa7720ddd5388a3c0a3333430953c68f1849b"
+        ],
+        "data": "0x",
+        "logIndex": 177,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000c2a3829f459b3edd87791c74cd45402ba0a20be3"
+        ],
+        "data": "0x",
+        "logIndex": 178,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x0000000000000000000000003ad9db589d201a710ed237c829c7860ba86510fc"
+        ],
+        "data": "0x",
+        "logIndex": 179,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x0000000000000000000000008576acc5c05d6ce88f4e49bf65bdf0c62f91353c"
+        ],
+        "data": "0x",
+        "logIndex": 180,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x0000000000000000000000001da5821544e25c636c1417ba96ade4cf6d2f9b5a"
+        ],
+        "data": "0x",
+        "logIndex": 181,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x0000000000000000000000007db418b5d567a4e0e8c59ad71be1fce48f3e6107"
+        ],
+        "data": "0x",
+        "logIndex": 182,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x00000000000000000000000072a5843cc08275c8171e582972aa4fda8c397b2a"
+        ],
+        "data": "0x",
+        "logIndex": 183,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x0000000000000000000000007f19720a857f834887fc9a7bc0a0fbe7fc7f8102"
+        ],
+        "data": "0x",
+        "logIndex": 184,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x0000000000000000000000002f389ce8bd8ff92de3402ffce4691d17fc4f6535"
+        ],
+        "data": "0x",
+        "logIndex": 185,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x00000000000000000000000019aa5fe80d33a56d56c78e82ea5e50e5d80b4dff"
+        ],
+        "data": "0x",
+        "logIndex": 186,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000e7aa314c77f4233c18c6cc84384a9247c0cf367b"
+        ],
+        "data": "0x",
+        "logIndex": 187,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000308ed4b7b49797e1a98d3818bff6fe5385410370"
+        ],
+        "data": "0x",
+        "logIndex": 188,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x00000000000000000000000067d40ee1a85bf4a4bb7ffae16de985e8427b6b45"
+        ],
+        "data": "0x",
+        "logIndex": 189,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x0000000000000000000000006f1ca141a28907f78ebaa64fb83a9088b02a8352"
+        ],
+        "data": "0x",
+        "logIndex": 190,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x0000000000000000000000006acdfba02d390b97ac2b2d42a63e85293bcc160e"
+        ],
+        "data": "0x",
+        "logIndex": 191,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x00000000000000000000000048549a34ae37b12f6a30566245176994e17c6b4a"
+        ],
+        "data": "0x",
+        "logIndex": 192,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x0000000000000000000000005512d943ed1f7c8a43f3435c85f7ab68b30121b0"
+        ],
+        "data": "0x",
+        "logIndex": 193,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000c455f7fd3e0e12afd51fba5c106909934d8a0e4a"
+        ],
+        "data": "0x",
+        "logIndex": 194,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000ba214c1c1928a32bffe790263e38b4af9bfcd659"
+        ],
+        "data": "0x",
+        "logIndex": 195,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000b1c8094b234dce6e03f10a5b673c1d8c69739a00"
+        ],
+        "data": "0x",
+        "logIndex": 196,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000527653ea119f3e6a1f5bd18fbf4714081d7b31ce"
+        ],
+        "data": "0x",
+        "logIndex": 197,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x00000000000000000000000058e8dcc13be9780fc42e8723d8ead4cf46943df2"
+        ],
+        "data": "0x",
+        "logIndex": 198,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000d691f27f38b395864ea86cfc7253969b409c362d"
+        ],
+        "data": "0x",
+        "logIndex": 199,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000aeaac358560e11f52454d997aaff2c5731b6f8a6"
+        ],
+        "data": "0x",
+        "logIndex": 200,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x0000000000000000000000001356c899d8c9467c7f71c195612f8a395abf2f0a"
+        ],
+        "data": "0x",
+        "logIndex": 201,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000a60c772958a3ed56c1f15dd055ba37ac8e523a0d"
+        ],
+        "data": "0x",
+        "logIndex": 202,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000169ad27a470d064dede56a2d3ff727986b15d52b"
+        ],
+        "data": "0x",
+        "logIndex": 203,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x0000000000000000000000000836222f2b2b24a3f36f98668ed8f0b38d1a872f"
+        ],
+        "data": "0x",
+        "logIndex": 204,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000f67721a2d8f736e75a49fdd7fad2e31d8676542a"
+        ],
+        "data": "0x",
+        "logIndex": 205,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x0000000000000000000000009ad122c22b14202b4490edaf288fdb3c7cb3ff5e"
+        ],
+        "data": "0x",
+        "logIndex": 206,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000905b63fff465b9ffbf41dea908ceb12478ec7601"
+        ],
+        "data": "0x",
+        "logIndex": 207,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x00000000000000000000000007687e702b410fa43f4cb4af7fa097918ffd2730"
+        ],
+        "data": "0x",
+        "logIndex": 208,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x00000000000000000000000094a1b5cdb22c43faab4abeb5c74999895464ddaf"
+        ],
+        "data": "0x",
+        "logIndex": 209,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000b541fc07bc7619fd4062a54d96268525cbc6ffef"
+        ],
+        "data": "0x",
+        "logIndex": 210,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x00000000000000000000000012d66f87a04a9e220743712ce6d9bb1b5616b8fc"
+        ],
+        "data": "0x",
+        "logIndex": 211,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x00000000000000000000000047ce0c6ed5b0ce3d3a51fdb1c52dc66a7c3c2936"
+        ],
+        "data": "0x",
+        "logIndex": 212,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x00000000000000000000000023773e65ed146a459791799d01336db287f25334"
+        ],
+        "data": "0x",
+        "logIndex": 213,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000d21be7248e0197ee08e0c20d4a96debdac3d20af"
+        ],
+        "data": "0x",
+        "logIndex": 214,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000610b717796ad172b316836ac95a2ffad065ceab4"
+        ],
+        "data": "0x",
+        "logIndex": 215,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000178169b423a011fff22b9e3f3abea13414ddd0f1"
+        ],
+        "data": "0x",
+        "logIndex": 216,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000bb93e510bbcd0b7beb5a853875f9ec60275cf498"
+        ],
+        "data": "0x",
+        "logIndex": 217,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x0000000000000000000000002717c5e28cf931547b621a5dddb772ab6a35b701"
+        ],
+        "data": "0x",
+        "logIndex": 218,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x00000000000000000000000003893a7c7463ae47d46bc7f091665f1893656003"
+        ],
+        "data": "0x",
+        "logIndex": 219,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      },
+      {
+        "transactionIndex": 83,
+        "blockNumber": 8082341,
+        "transactionHash": "0x6b4e45d5200247348080675e380793ad7c7f0d5fb55133ef5491297c91b47d80",
+        "address": "0x63fB641357C7862007D53e1bCc33c5015d358076",
+        "topics": [
+          "0xffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b855",
+          "0x000000000000000000000000ca0840578f57fe71599d29375e16783424023357"
+        ],
+        "data": "0x",
+        "logIndex": 220,
+        "blockHash": "0x492f64523e5e2b6652da7b1876a01de0907a4715552a668933e07168f7ddb72f"
+      }
+    ],
+    "blockNumber": 8082341,
+    "cumulativeGasUsed": "19932230",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0xa52422BB8c29E4d55243d310fB6BAe793162452e",
+    "0xa52422BB8c29E4d55243d310fB6BAe793162452e",
+    [
+      "0x098b716b8aaf21512996dc57eb0615e2383e2f96",
+      "0xa0e1c89ef1a489c9c7de96311ed5ce5d32c20e4b",
+      "0x3cffd56b47b7b41c56258d9c7731abadc360e073",
+      "0x53b6936513e738f44fb50d2b9476730c0ab3bfc1",
+      "0x35fb6f6db4fb05e6a4ce86f2c93691425626d4b1",
+      "0xf7b31119c2682c88d88d455dbb9d5932c65cf1be",
+      "0x3e37627deaa754090fbfbb8bd226c1ce66d255e9",
+      "0x08723392ed15743cc38513c4925f5e6be5c17243",
+      "0x7f367cc41522ce07553e823bf3be79a889debe1b",
+      "0xd882cfc20f52f2599d84b8e8d58c7fb62cfe344b",
+      "0x901bb9583b24d97e995513c6778dc6888ab6870e",
+      "0xa7e5d5a720f06526557c513402f2e6b5fa20b008",
+      "0x9f4cda013e354b8fc285bf4b9a60460cee7f7ea9",
+      "0x3cbded43efdaf0fc77b9c55f6fc9988fcc9b757d",
+      "0xfec8a60023265364d066a1212fde3930f6ae8da7",
+      "0x7ff9cfad3877f21d41da833e2f775db0569ee3d9",
+      "0x8589427373d6d84e98730d7795d8f6f8731fda16",
+      "0x722122df12d4e14e13ac3b6895a86e84145b6967",
+      "0xdd4c48c0b24039969fc16d1cdf626eab821d3384",
+      "0xd90e2f925da726b50c4ed8d0fb90ad053324f31b",
+      "0xd96f2b1c14db8458374d9aca76e26c3d18364307",
+      "0x4736dcf1b7a3d580672cce6e7c65cd5cc9cfba9d",
+      "0xd4b88df4d29f5cedd6857912842cff3b20c8cfa3",
+      "0x910cbd523d972eb0a6f4cae4618ad62622b39dbf",
+      "0xa160cdab225685da1d56aa342ad8841c3b53f291",
+      "0xfd8610d20aa15b7b2e3be39b396a1bc3516c7144",
+      "0xf60dd140cff0706bae9cd734ac3ae76ad9ebc32a",
+      "0x22aaa7720ddd5388a3c0a3333430953c68f1849b",
+      "0xc2a3829f459b3edd87791c74cd45402ba0a20be3",
+      "0x3ad9db589d201a710ed237c829c7860ba86510fc",
+      "0x8576acc5c05d6ce88f4e49bf65bdf0c62f91353c",
+      "0x1da5821544e25c636c1417ba96ade4cf6d2f9b5a",
+      "0x7db418b5d567a4e0e8c59ad71be1fce48f3e6107",
+      "0x72a5843cc08275c8171e582972aa4fda8c397b2a",
+      "0x7f19720a857f834887fc9a7bc0a0fbe7fc7f8102",
+      "0x2f389ce8bd8ff92de3402ffce4691d17fc4f6535",
+      "0x19aa5fe80d33a56d56c78e82ea5e50e5d80b4dff",
+      "0xe7aa314c77f4233c18c6cc84384a9247c0cf367b",
+      "0x308ed4b7b49797e1a98d3818bff6fe5385410370",
+      "0x67d40ee1a85bf4a4bb7ffae16de985e8427b6b45",
+      "0x6f1ca141a28907f78ebaa64fb83a9088b02a8352",
+      "0x6acdfba02d390b97ac2b2d42a63e85293bcc160e",
+      "0x48549a34ae37b12f6a30566245176994e17c6b4a",
+      "0x5512d943ed1f7c8a43f3435c85f7ab68b30121b0",
+      "0xc455f7fd3e0e12afd51fba5c106909934d8a0e4a",
+      "0xba214c1c1928a32bffe790263e38b4af9bfcd659",
+      "0xb1c8094b234dce6e03f10a5b673c1d8c69739a00",
+      "0x527653ea119f3e6a1f5bd18fbf4714081d7b31ce",
+      "0x58e8dcc13be9780fc42e8723d8ead4cf46943df2",
+      "0xd691f27f38b395864ea86cfc7253969b409c362d",
+      "0xaeaac358560e11f52454d997aaff2c5731b6f8a6",
+      "0x1356c899d8c9467c7f71c195612f8a395abf2f0a",
+      "0xa60c772958a3ed56c1f15dd055ba37ac8e523a0d",
+      "0x169ad27a470d064dede56a2d3ff727986b15d52b",
+      "0x0836222f2b2b24a3f36f98668ed8f0b38d1a872f",
+      "0xf67721a2d8f736e75a49fdd7fad2e31d8676542a",
+      "0x9ad122c22b14202b4490edaf288fdb3c7cb3ff5e",
+      "0x905b63fff465b9ffbf41dea908ceb12478ec7601",
+      "0x07687e702b410fa43f4cb4af7fa097918ffd2730",
+      "0x94a1b5cdb22c43faab4abeb5c74999895464ddaf",
+      "0xb541fc07bc7619fd4062a54d96268525cbc6ffef",
+      "0x12d66f87a04a9e220743712ce6d9bb1b5616b8fc",
+      "0x47ce0c6ed5b0ce3d3a51fdb1c52dc66a7c3c2936",
+      "0x23773e65ed146a459791799d01336db287f25334",
+      "0xd21be7248e0197ee08e0c20d4a96debdac3d20af",
+      "0x610b717796ad172b316836ac95a2ffad065ceab4",
+      "0x178169b423a011fff22b9e3f3abea13414ddd0f1",
+      "0xbb93e510bbcd0b7beb5a853875f9ec60275cf498",
+      "0x2717c5e28cf931547b621a5dddb772ab6a35b701",
+      "0x03893a7c7463ae47d46bc7f091665f1893656003",
+      "0xca0840578f57fe71599d29375e16783424023357"
+    ]
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "3554d702f0e0397088d734ea72e37851",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_admin\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_updater\",\"type\":\"address\"},{\"internalType\":\"address[]\",\"name\":\"_blacklist\",\"type\":\"address[]\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_account\",\"type\":\"address\"}],\"name\":\"Blacklisted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"_account\",\"type\":\"address\"}],\"name\":\"UnBlacklisted\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"UPDATER_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"newBlacklistEntries\",\"type\":\"address[]\"}],\"name\":\"addToBlacklist\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"blacklist\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"blacklistLength\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"getRoleMember\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleMemberCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"isBlacklisted\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"blacklistEntriesToRemove\",\"type\":\"address[]\"}],\"name\":\"removeFromBlacklist\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"addressesToAdd\",\"type\":\"address[]\"},{\"internalType\":\"address[]\",\"name\":\"addressesToRemove\",\"type\":\"address[]\"}],\"name\":\"updateBlacklist\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"List of blacklisted addresses on Ethereum\",\"kind\":\"dev\",\"methods\":{\"addToBlacklist(address[])\":{\"params\":{\"newBlacklistEntries\":\"Addresses to add to the blacklist\"}},\"blacklist()\":{\"returns\":{\"_0\":\"address[] Current blacklist\"}},\"blacklistLength()\":{\"returns\":{\"_0\":\"uint256 Current blacklist length\"}},\"constructor\":{\"params\":{\"_admin\":\"Blacklist admin\",\"_blacklist\":\"Initial blacklist\",\"_updater\":\"Initial updater address\"}},\"getRoleAdmin(bytes32)\":{\"details\":\"Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. To change a role's admin, use {_setRoleAdmin}.\"},\"getRoleMember(bytes32,uint256)\":{\"details\":\"Returns one of the accounts that have `role`. `index` must be a value between 0 and {getRoleMemberCount}, non-inclusive. Role bearers are not sorted in any particular way, and their ordering may change at any point. WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure you perform all queries on the same block. See the following https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296[forum post] for more information.\"},\"getRoleMemberCount(bytes32)\":{\"details\":\"Returns the number of accounts that have `role`. Can be used together with {getRoleMember} to enumerate all bearers of a role.\"},\"grantRole(bytes32,address)\":{\"details\":\"Overload {grantRole} to track enumerable memberships\"},\"hasRole(bytes32,address)\":{\"details\":\"Returns `true` if `account` has been granted `role`.\"},\"removeFromBlacklist(address[])\":{\"params\":{\"blacklistEntriesToRemove\":\"Addresses to remove from the blacklist\"}},\"renounceRole(bytes32,address)\":{\"details\":\"Overload {renounceRole} to track enumerable memberships\"},\"revokeRole(bytes32,address)\":{\"details\":\"Overload {revokeRole} to track enumerable memberships\"},\"supportsInterface(bytes4)\":{\"details\":\"See {IERC165-supportsInterface}.\"},\"updateBlacklist(address[],address[])\":{\"params\":{\"addressesToAdd\":\"Addresses to add to the blacklist\",\"addressesToRemove\":\"Addresses to remove from the blacklist\"}}},\"title\":\"Blacklist\",\"version\":1},\"userdoc\":{\"events\":{\"Blacklisted(address)\":{\"notice\":\"Event emitted when an address is added to the blacklist\"},\"UnBlacklisted(address)\":{\"notice\":\"Event emitted when an address is removed from the blacklist\"}},\"kind\":\"user\",\"methods\":{\"UPDATER_ROLE()\":{\"notice\":\"Permissioned role able to add and remove addresses from the blacklist\"},\"addToBlacklist(address[])\":{\"notice\":\"Add addresses to the blacklist\"},\"blacklist()\":{\"notice\":\"Get current blacklist\"},\"blacklistLength()\":{\"notice\":\"Get current blacklist length\"},\"constructor\":{\"notice\":\"Construct a new Blacklist contract\"},\"isBlacklisted(address)\":{\"notice\":\"We use a mapping in addition to an EnumerableSet to make reading from the storage addresses easier\"},\"removeFromBlacklist(address[])\":{\"notice\":\"Remove addresses from the blacklist\"},\"updateBlacklist(address[],address[])\":{\"notice\":\"Add and remove addresses from the blacklist in a single transaction\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/Blacklist.sol\":\"Blacklist\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":999999},\"remappings\":[]},\"sources\":{\"contracts/Blacklist.sol\":{\"content\":\"// SPDX-License-Identifier: UNLICENSED\\npragma solidity ^0.8.0;\\n\\nimport \\\"./lib/AccessControlEnumerable.sol\\\";\\n\\n/**\\n * @title Blacklist\\n * @dev List of blacklisted addresses on Ethereum\\n */\\ncontract Blacklist is AccessControlEnumerable {\\n    using EnumerableSet for EnumerableSet.AddressSet;\\n\\n    /// @notice We use a mapping in addition to an EnumerableSet to make reading from the storage addresses easier\\n    mapping(address => bool) public isBlacklisted;\\n\\n    /// @notice We use an EnumerableSet to make lookups and iteration easier\\n    EnumerableSet.AddressSet blacklistSet;\\n\\n    /// @notice Permissioned role able to add and remove addresses from the blacklist\\n    bytes32 public constant UPDATER_ROLE = keccak256(\\\"UPDATER_ROLE\\\");\\n\\n    /// @notice Only Updater modifier\\n    modifier onlyUpdater() {\\n        require(hasRole(UPDATER_ROLE, msg.sender), \\\"Must be updater\\\");\\n        _;\\n    }\\n\\n    /// @notice Event emitted when an address is added to the blacklist\\n    event Blacklisted(address indexed _account);\\n\\n    /// @notice Event emitted when an address is removed from the blacklist\\n    event UnBlacklisted(address indexed _account);\\n\\n    /** \\n     * @notice Construct a new Blacklist contract\\n     * @param _admin Blacklist admin\\n     * @param _updater Initial updater address\\n     * @param _blacklist Initial blacklist\\n     */\\n    constructor(address _admin, address _updater, address[] memory _blacklist) {\\n        _setupRole(UPDATER_ROLE, _updater);\\n        _setupRole(DEFAULT_ADMIN_ROLE, _admin);\\n        _addToBlacklist(_blacklist);\\n    }\\n\\n    /** \\n     * @notice Add addresses to the blacklist\\n     * @param newBlacklistEntries Addresses to add to the blacklist\\n     */\\n    function addToBlacklist(address[] calldata newBlacklistEntries) external onlyUpdater {\\n        _addToBlacklist(newBlacklistEntries);\\n    }\\n\\n    /** \\n     * @notice Remove addresses from the blacklist\\n     * @param blacklistEntriesToRemove Addresses to remove from the blacklist\\n     */\\n    function removeFromBlacklist(address[] calldata blacklistEntriesToRemove) external onlyUpdater {\\n        _removeFromBlacklist(blacklistEntriesToRemove);\\n    }\\n\\n    /** \\n     * @notice Add and remove addresses from the blacklist in a single transaction\\n     * @param addressesToAdd Addresses to add to the blacklist\\n     * @param addressesToRemove Addresses to remove from the blacklist\\n     */     \\n    function updateBlacklist(address[] calldata addressesToAdd, address[] calldata addressesToRemove) external onlyUpdater {\\n        _removeFromBlacklist(addressesToRemove);\\n        _addToBlacklist(addressesToAdd);\\n    }\\n\\n    /** \\n     * @notice Get current blacklist\\n     * @return address[] Current blacklist\\n     */\\n    function blacklist() external view returns (address[] memory) {\\n        return blacklistSet.values();\\n    }\\n\\n    /** \\n     * @notice Get current blacklist length\\n     * @return uint256 Current blacklist length\\n     */\\n    function blacklistLength() external view returns (uint256) {\\n        return blacklistSet.length();\\n    }\\n\\n    /**\\n     * @notice Internal implementation of addToBlacklist\\n     * @param newBlacklistEntries New addresses to add to blacklist\\n     */\\n    function _addToBlacklist(address[] memory newBlacklistEntries) internal {\\n        for (uint i = 0; i < newBlacklistEntries.length; i++) {\\n            require(!blacklistSet.contains(newBlacklistEntries[i]), \\\"Address already in blacklist\\\");\\n            isBlacklisted[newBlacklistEntries[i]] = true;\\n            blacklistSet.add(newBlacklistEntries[i]);\\n            emit Blacklisted(newBlacklistEntries[i]);\\n        }\\n    }\\n\\n    /** \\n     * @notice Internal implementation of removeFromBlacklist\\n     * @param blacklistEntriesToRemove Addresses to remove from the blacklist\\n     */\\n    function _removeFromBlacklist(address[] calldata blacklistEntriesToRemove) internal {\\n        for (uint i = 0; i < blacklistEntriesToRemove.length; i++) {\\n            require(blacklistSet.contains(blacklistEntriesToRemove[i]), \\\"Address not in blacklist\\\");\\n            delete isBlacklisted[blacklistEntriesToRemove[i]];\\n            blacklistSet.remove(blacklistEntriesToRemove[i]);\\n            emit UnBlacklisted(blacklistEntriesToRemove[i]);\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0x7d60acd2df84950d4d01924db03f4087491d4d03ce313a56060a7cc11099c619\",\"license\":\"UNLICENSED\"},\"contracts/interfaces/IAccessControl.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev External interface of AccessControl declared to support ERC165 detection.\\n */\\ninterface IAccessControl {\\n    function hasRole(bytes32 role, address account) external view returns (bool);\\n\\n    function getRoleAdmin(bytes32 role) external view returns (bytes32);\\n\\n    function grantRole(bytes32 role, address account) external;\\n\\n    function revokeRole(bytes32 role, address account) external;\\n\\n    function renounceRole(bytes32 role, address account) external;\\n}\",\"keccak256\":\"0x46c6221bf99e0fcfba0f383210abfb0692861c4021dbc248277ffe7b7c9c4fcc\",\"license\":\"MIT\"},\"contracts/interfaces/IAccessControlEnumerable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev External interface of AccessControlEnumerable declared to support ERC165 detection.\\n */\\ninterface IAccessControlEnumerable {\\n    function getRoleMember(bytes32 role, uint256 index) external view returns (address);\\n\\n    function getRoleMemberCount(bytes32 role) external view returns (uint256);\\n}\\n\",\"keccak256\":\"0x631cb745dffeb59f7e7b31990336127c98468ba99898f36b8dcdc9254ec1273b\",\"license\":\"MIT\"},\"contracts/interfaces/IERC165.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Interface of the ERC165 standard, as defined in the\\n * https://eips.ethereum.org/EIPS/eip-165[EIP].\\n *\\n * Implementers can declare support of contract interfaces, which can then be\\n * queried by others ({ERC165Checker}).\\n *\\n * For an implementation, see {ERC165}.\\n */\\ninterface IERC165 {\\n    /**\\n     * @dev Returns true if this contract implements the interface defined by\\n     * `interfaceId`. See the corresponding\\n     * https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section]\\n     * to learn more about how these ids are created.\\n     *\\n     * This function call must use less than 30 000 gas.\\n     */\\n    function supportsInterface(bytes4 interfaceId) external view returns (bool);\\n}\\n\",\"keccak256\":\"0x3ce2766250b7eb013230440109b986c249573218bd3f587348018643ec55e501\",\"license\":\"MIT\"},\"contracts/lib/AccessControl.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\nimport \\\"../interfaces/IAccessControl.sol\\\";\\nimport \\\"./Context.sol\\\";\\nimport \\\"./Strings.sol\\\";\\nimport \\\"./ERC165.sol\\\";\\n\\n/**\\n * @dev Contract module that allows children to implement role-based access\\n * control mechanisms. This is a lightweight version that doesn't allow enumerating role\\n * members except through off-chain means by accessing the contract event logs. Some\\n * applications may benefit from on-chain enumerability, for those cases see\\n * {AccessControlEnumerable}.\\n *\\n * Roles are referred to by their `bytes32` identifier. These should be exposed\\n * in the external API and be unique. The best way to achieve this is by\\n * using `public constant` hash digests:\\n *\\n * ```\\n * bytes32 public constant MY_ROLE = keccak256(\\\"MY_ROLE\\\");\\n * ```\\n *\\n * Roles can be used to represent a set of permissions. To restrict access to a\\n * function call, use {hasRole}:\\n *\\n * ```\\n * function foo() public {\\n *     require(hasRole(MY_ROLE, msg.sender));\\n *     ...\\n * }\\n * ```\\n *\\n * Roles can be granted and revoked dynamically via the {grantRole} and\\n * {revokeRole} functions. Each role has an associated admin role, and only\\n * accounts that have a role's admin role can call {grantRole} and {revokeRole}.\\n *\\n * By default, the admin role for all roles is `DEFAULT_ADMIN_ROLE`, which means\\n * that only accounts with this role will be able to grant or revoke other\\n * roles. More complex role relationships can be created by using\\n * {_setRoleAdmin}.\\n *\\n * WARNING: The `DEFAULT_ADMIN_ROLE` is also its own admin: it has permission to\\n * grant and revoke this role. Extra precautions should be taken to secure\\n * accounts that have been granted it.\\n */\\nabstract contract AccessControl is Context, IAccessControl, ERC165 {\\n    struct RoleData {\\n        mapping(address => bool) members;\\n        bytes32 adminRole;\\n    }\\n\\n    mapping(bytes32 => RoleData) private _roles;\\n\\n    bytes32 public constant DEFAULT_ADMIN_ROLE = 0x00;\\n\\n    /**\\n     * @dev Emitted when `newAdminRole` is set as ``role``'s admin role, replacing `previousAdminRole`\\n     *\\n     * `DEFAULT_ADMIN_ROLE` is the starting admin for all roles, despite\\n     * {RoleAdminChanged} not being emitted signaling this.\\n     *\\n     * _Available since v3.1._\\n     */\\n    event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole);\\n\\n    /**\\n     * @dev Emitted when `account` is granted `role`.\\n     *\\n     * `sender` is the account that originated the contract call, an admin role\\n     * bearer except when using {_setupRole}.\\n     */\\n    event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender);\\n\\n    /**\\n     * @dev Emitted when `account` is revoked `role`.\\n     *\\n     * `sender` is the account that originated the contract call:\\n     *   - if using `revokeRole`, it is the admin role bearer\\n     *   - if using `renounceRole`, it is the role bearer (i.e. `account`)\\n     */\\n    event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender);\\n\\n    /**\\n     * @dev Modifier that checks that an account has a specific role. Reverts\\n     * with a standardized message including the required role.\\n     *\\n     * The format of the revert reason is given by the following regular expression:\\n     *\\n     *  /^AccessControl: account (0x[0-9a-f]{40}) is missing role (0x[0-9a-f]{64})$/\\n     *\\n     * _Available since v4.1._\\n     */\\n    modifier onlyRole(bytes32 role) {\\n        _checkRole(role, _msgSender());\\n        _;\\n    }\\n\\n    /**\\n     * @dev See {IERC165-supportsInterface}.\\n     */\\n    function supportsInterface(bytes4 interfaceId) public view virtual override returns (bool) {\\n        return interfaceId == type(IAccessControl).interfaceId || super.supportsInterface(interfaceId);\\n    }\\n\\n    /**\\n     * @dev Returns `true` if `account` has been granted `role`.\\n     */\\n    function hasRole(bytes32 role, address account) public view override returns (bool) {\\n        return _roles[role].members[account];\\n    }\\n\\n    /**\\n     * @dev Revert with a standard message if `account` is missing `role`.\\n     *\\n     * The format of the revert reason is given by the following regular expression:\\n     *\\n     *  /^AccessControl: account (0x[0-9a-f]{40}) is missing role (0x[0-9a-f]{64})$/\\n     */\\n    function _checkRole(bytes32 role, address account) internal view {\\n        if (!hasRole(role, account)) {\\n            revert(\\n                string(\\n                    abi.encodePacked(\\n                        \\\"AccessControl: account \\\",\\n                        Strings.toHexString(uint160(account), 20),\\n                        \\\" is missing role \\\",\\n                        Strings.toHexString(uint256(role), 32)\\n                    )\\n                )\\n            );\\n        }\\n    }\\n\\n    /**\\n     * @dev Returns the admin role that controls `role`. See {grantRole} and\\n     * {revokeRole}.\\n     *\\n     * To change a role's admin, use {_setRoleAdmin}.\\n     */\\n    function getRoleAdmin(bytes32 role) public view override returns (bytes32) {\\n        return _roles[role].adminRole;\\n    }\\n\\n    /**\\n     * @dev Grants `role` to `account`.\\n     *\\n     * If `account` had not been already granted `role`, emits a {RoleGranted}\\n     * event.\\n     *\\n     * Requirements:\\n     *\\n     * - the caller must have ``role``'s admin role.\\n     */\\n    function grantRole(bytes32 role, address account) public virtual override onlyRole(getRoleAdmin(role)) {\\n        _grantRole(role, account);\\n    }\\n\\n    /**\\n     * @dev Revokes `role` from `account`.\\n     *\\n     * If `account` had been granted `role`, emits a {RoleRevoked} event.\\n     *\\n     * Requirements:\\n     *\\n     * - the caller must have ``role``'s admin role.\\n     */\\n    function revokeRole(bytes32 role, address account) public virtual override onlyRole(getRoleAdmin(role)) {\\n        _revokeRole(role, account);\\n    }\\n\\n    /**\\n     * @dev Revokes `role` from the calling account.\\n     *\\n     * Roles are often managed via {grantRole} and {revokeRole}: this function's\\n     * purpose is to provide a mechanism for accounts to lose their privileges\\n     * if they are compromised (such as when a trusted device is misplaced).\\n     *\\n     * If the calling account had been granted `role`, emits a {RoleRevoked}\\n     * event.\\n     *\\n     * Requirements:\\n     *\\n     * - the caller must be `account`.\\n     */\\n    function renounceRole(bytes32 role, address account) public virtual override {\\n        require(account == _msgSender(), \\\"AccessControl: can only renounce roles for self\\\");\\n\\n        _revokeRole(role, account);\\n    }\\n\\n    /**\\n     * @dev Grants `role` to `account`.\\n     *\\n     * If `account` had not been already granted `role`, emits a {RoleGranted}\\n     * event. Note that unlike {grantRole}, this function doesn't perform any\\n     * checks on the calling account.\\n     *\\n     * [WARNING]\\n     * ====\\n     * This function should only be called from the constructor when setting\\n     * up the initial roles for the system.\\n     *\\n     * Using this function in any other way is effectively circumventing the admin\\n     * system imposed by {AccessControl}.\\n     * ====\\n     */\\n    function _setupRole(bytes32 role, address account) internal virtual {\\n        _grantRole(role, account);\\n    }\\n\\n    /**\\n     * @dev Sets `adminRole` as ``role``'s admin role.\\n     *\\n     * Emits a {RoleAdminChanged} event.\\n     */\\n    function _setRoleAdmin(bytes32 role, bytes32 adminRole) internal virtual {\\n        bytes32 previousAdminRole = getRoleAdmin(role);\\n        _roles[role].adminRole = adminRole;\\n        emit RoleAdminChanged(role, previousAdminRole, adminRole);\\n    }\\n\\n    function _grantRole(bytes32 role, address account) private {\\n        if (!hasRole(role, account)) {\\n            _roles[role].members[account] = true;\\n            emit RoleGranted(role, account, _msgSender());\\n        }\\n    }\\n\\n    function _revokeRole(bytes32 role, address account) internal {\\n        if (hasRole(role, account)) {\\n            _roles[role].members[account] = false;\\n            emit RoleRevoked(role, account, _msgSender());\\n        }\\n    }\\n}\",\"keccak256\":\"0x7f2f3980706b9bafafacce85db09edab1f67a6a541d4415ae4f0d454368080ed\",\"license\":\"MIT\"},\"contracts/lib/AccessControlEnumerable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.0;\\n\\nimport \\\"../interfaces/IAccessControlEnumerable.sol\\\";\\nimport \\\"./AccessControl.sol\\\";\\nimport \\\"./EnumerableSet.sol\\\";\\n\\n/**\\n * @dev Extension of {AccessControl} that allows enumerating the members of each role.\\n */\\nabstract contract AccessControlEnumerable is IAccessControlEnumerable, AccessControl {\\n    using EnumerableSet for EnumerableSet.AddressSet;\\n\\n    mapping(bytes32 => EnumerableSet.AddressSet) private _roleMembers;\\n\\n    /**\\n     * @dev See {IERC165-supportsInterface}.\\n     */\\n    function supportsInterface(bytes4 interfaceId) public view virtual override returns (bool) {\\n        return interfaceId == type(IAccessControlEnumerable).interfaceId || super.supportsInterface(interfaceId);\\n    }\\n\\n    /**\\n     * @dev Returns one of the accounts that have `role`. `index` must be a\\n     * value between 0 and {getRoleMemberCount}, non-inclusive.\\n     *\\n     * Role bearers are not sorted in any particular way, and their ordering may\\n     * change at any point.\\n     *\\n     * WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure\\n     * you perform all queries on the same block. See the following\\n     * https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296[forum post]\\n     * for more information.\\n     */\\n    function getRoleMember(bytes32 role, uint256 index) public view override returns (address) {\\n        return _roleMembers[role].at(index);\\n    }\\n\\n    /**\\n     * @dev Returns the number of accounts that have `role`. Can be used\\n     * together with {getRoleMember} to enumerate all bearers of a role.\\n     */\\n    function getRoleMemberCount(bytes32 role) public view override returns (uint256) {\\n        return _roleMembers[role].length();\\n    }\\n\\n    /**\\n     * @dev Overload {grantRole} to track enumerable memberships\\n     */\\n    function grantRole(bytes32 role, address account) public virtual override {\\n        super.grantRole(role, account);\\n        _roleMembers[role].add(account);\\n    }\\n\\n    /**\\n     * @dev Overload {revokeRole} to track enumerable memberships\\n     */\\n    function revokeRole(bytes32 role, address account) public virtual override {\\n        super.revokeRole(role, account);\\n        _roleMembers[role].remove(account);\\n    }\\n\\n    /**\\n     * @dev Overload {renounceRole} to track enumerable memberships\\n     */\\n    function renounceRole(bytes32 role, address account) public virtual override {\\n        super.renounceRole(role, account);\\n        _roleMembers[role].remove(account);\\n    }\\n\\n    /**\\n     * @dev Overload {_setupRole} to track enumerable memberships\\n     */\\n    function _setupRole(bytes32 role, address account) internal virtual override {\\n        super._setupRole(role, account);\\n        _roleMembers[role].add(account);\\n    }\\n}\\n\",\"keccak256\":\"0x027a6c4d27c16a2c5a98d35cd2757b6c59aa22a9550b8e6b2ae07f4eec08b8a6\",\"license\":\"MIT\"},\"contracts/lib/Context.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract Context {\\n    function _msgSender() internal view virtual returns (address) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes calldata) {\\n        return msg.data;\\n    }\\n}\",\"keccak256\":\"0xb53122e1b41825143486e6e0a288593a60bb924cfdc8e15309c9b86095becb7f\",\"license\":\"MIT\"},\"contracts/lib/ERC165.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.0;\\n\\nimport \\\"../interfaces/IERC165.sol\\\";\\n\\n/**\\n * @dev Implementation of the {IERC165} interface.\\n *\\n * Contracts that want to implement ERC165 should inherit from this contract and override {supportsInterface} to check\\n * for the additional interface id that will be supported. For example:\\n *\\n * ```solidity\\n * function supportsInterface(bytes4 interfaceId) public view virtual override returns (bool) {\\n *     return interfaceId == type(MyInterface).interfaceId || super.supportsInterface(interfaceId);\\n * }\\n * ```\\n *\\n * Alternatively, {ERC165Storage} provides an easier to use but more expensive implementation.\\n */\\nabstract contract ERC165 is IERC165 {\\n    /**\\n     * @dev See {IERC165-supportsInterface}.\\n     */\\n    function supportsInterface(bytes4 interfaceId) public view virtual override returns (bool) {\\n        return interfaceId == type(IERC165).interfaceId;\\n    }\\n}\\n\",\"keccak256\":\"0x46df8f85a9cee339d42e0b6b74f09062e428a0cf79f56843bb560f74cfa760de\",\"license\":\"MIT\"},\"contracts/lib/EnumerableSet.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.7.0) (utils/structs/EnumerableSet.sol)\\n// This file was procedurally generated from scripts/generate/templates/EnumerableSet.js.\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Library for managing\\n * https://en.wikipedia.org/wiki/Set_(abstract_data_type)[sets] of primitive\\n * types.\\n *\\n * Sets have the following properties:\\n *\\n * - Elements are added, removed, and checked for existence in constant time\\n * (O(1)).\\n * - Elements are enumerated in O(n). No guarantees are made on the ordering.\\n *\\n * ```\\n * contract Example {\\n *     // Add the library methods\\n *     using EnumerableSet for EnumerableSet.AddressSet;\\n *\\n *     // Declare a set state variable\\n *     EnumerableSet.AddressSet private mySet;\\n * }\\n * ```\\n *\\n * As of v3.3.0, sets of type `bytes32` (`Bytes32Set`), `address` (`AddressSet`)\\n * and `uint256` (`UintSet`) are supported.\\n *\\n * [WARNING]\\n * ====\\n * Trying to delete such a structure from storage will likely result in data corruption, rendering the structure\\n * unusable.\\n * See https://github.com/ethereum/solidity/pull/11843[ethereum/solidity#11843] for more info.\\n *\\n * In order to clean an EnumerableSet, you can either remove all elements one by one or create a fresh instance using an\\n * array of EnumerableSet.\\n * ====\\n */\\nlibrary EnumerableSet {\\n    // To implement this library for multiple types with as little code\\n    // repetition as possible, we write it in terms of a generic Set type with\\n    // bytes32 values.\\n    // The Set implementation uses private functions, and user-facing\\n    // implementations (such as AddressSet) are just wrappers around the\\n    // underlying Set.\\n    // This means that we can only create new EnumerableSets for types that fit\\n    // in bytes32.\\n\\n    struct Set {\\n        // Storage of set values\\n        bytes32[] _values;\\n        // Position of the value in the `values` array, plus 1 because index 0\\n        // means a value is not in the set.\\n        mapping(bytes32 => uint256) _indexes;\\n    }\\n\\n    /**\\n     * @dev Add a value to a set. O(1).\\n     *\\n     * Returns true if the value was added to the set, that is if it was not\\n     * already present.\\n     */\\n    function _add(Set storage set, bytes32 value) private returns (bool) {\\n        if (!_contains(set, value)) {\\n            set._values.push(value);\\n            // The value is stored at length-1, but we add 1 to all indexes\\n            // and use 0 as a sentinel value\\n            set._indexes[value] = set._values.length;\\n            return true;\\n        } else {\\n            return false;\\n        }\\n    }\\n\\n    /**\\n     * @dev Removes a value from a set. O(1).\\n     *\\n     * Returns true if the value was removed from the set, that is if it was\\n     * present.\\n     */\\n    function _remove(Set storage set, bytes32 value) private returns (bool) {\\n        // We read and store the value's index to prevent multiple reads from the same storage slot\\n        uint256 valueIndex = set._indexes[value];\\n\\n        if (valueIndex != 0) {\\n            // Equivalent to contains(set, value)\\n            // To delete an element from the _values array in O(1), we swap the element to delete with the last one in\\n            // the array, and then remove the last element (sometimes called as 'swap and pop').\\n            // This modifies the order of the array, as noted in {at}.\\n\\n            uint256 toDeleteIndex = valueIndex - 1;\\n            uint256 lastIndex = set._values.length - 1;\\n\\n            if (lastIndex != toDeleteIndex) {\\n                bytes32 lastValue = set._values[lastIndex];\\n\\n                // Move the last value to the index where the value to delete is\\n                set._values[toDeleteIndex] = lastValue;\\n                // Update the index for the moved value\\n                set._indexes[lastValue] = valueIndex; // Replace lastValue's index to valueIndex\\n            }\\n\\n            // Delete the slot where the moved value was stored\\n            set._values.pop();\\n\\n            // Delete the index for the deleted slot\\n            delete set._indexes[value];\\n\\n            return true;\\n        } else {\\n            return false;\\n        }\\n    }\\n\\n    /**\\n     * @dev Returns true if the value is in the set. O(1).\\n     */\\n    function _contains(Set storage set, bytes32 value) private view returns (bool) {\\n        return set._indexes[value] != 0;\\n    }\\n\\n    /**\\n     * @dev Returns the number of values on the set. O(1).\\n     */\\n    function _length(Set storage set) private view returns (uint256) {\\n        return set._values.length;\\n    }\\n\\n    /**\\n     * @dev Returns the value stored at position `index` in the set. O(1).\\n     *\\n     * Note that there are no guarantees on the ordering of values inside the\\n     * array, and it may change when more values are added or removed.\\n     *\\n     * Requirements:\\n     *\\n     * - `index` must be strictly less than {length}.\\n     */\\n    function _at(Set storage set, uint256 index) private view returns (bytes32) {\\n        return set._values[index];\\n    }\\n\\n    /**\\n     * @dev Return the entire set in an array\\n     *\\n     * WARNING: This operation will copy the entire storage to memory, which can be quite expensive. This is designed\\n     * to mostly be used by view accessors that are queried without any gas fees. Developers should keep in mind that\\n     * this function has an unbounded cost, and using it as part of a state-changing function may render the function\\n     * uncallable if the set grows to a point where copying to memory consumes too much gas to fit in a block.\\n     */\\n    function _values(Set storage set) private view returns (bytes32[] memory) {\\n        return set._values;\\n    }\\n\\n    // Bytes32Set\\n\\n    struct Bytes32Set {\\n        Set _inner;\\n    }\\n\\n    /**\\n     * @dev Add a value to a set. O(1).\\n     *\\n     * Returns true if the value was added to the set, that is if it was not\\n     * already present.\\n     */\\n    function add(Bytes32Set storage set, bytes32 value) internal returns (bool) {\\n        return _add(set._inner, value);\\n    }\\n\\n    /**\\n     * @dev Removes a value from a set. O(1).\\n     *\\n     * Returns true if the value was removed from the set, that is if it was\\n     * present.\\n     */\\n    function remove(Bytes32Set storage set, bytes32 value) internal returns (bool) {\\n        return _remove(set._inner, value);\\n    }\\n\\n    /**\\n     * @dev Returns true if the value is in the set. O(1).\\n     */\\n    function contains(Bytes32Set storage set, bytes32 value) internal view returns (bool) {\\n        return _contains(set._inner, value);\\n    }\\n\\n    /**\\n     * @dev Returns the number of values in the set. O(1).\\n     */\\n    function length(Bytes32Set storage set) internal view returns (uint256) {\\n        return _length(set._inner);\\n    }\\n\\n    /**\\n     * @dev Returns the value stored at position `index` in the set. O(1).\\n     *\\n     * Note that there are no guarantees on the ordering of values inside the\\n     * array, and it may change when more values are added or removed.\\n     *\\n     * Requirements:\\n     *\\n     * - `index` must be strictly less than {length}.\\n     */\\n    function at(Bytes32Set storage set, uint256 index) internal view returns (bytes32) {\\n        return _at(set._inner, index);\\n    }\\n\\n    /**\\n     * @dev Return the entire set in an array\\n     *\\n     * WARNING: This operation will copy the entire storage to memory, which can be quite expensive. This is designed\\n     * to mostly be used by view accessors that are queried without any gas fees. Developers should keep in mind that\\n     * this function has an unbounded cost, and using it as part of a state-changing function may render the function\\n     * uncallable if the set grows to a point where copying to memory consumes too much gas to fit in a block.\\n     */\\n    function values(Bytes32Set storage set) internal view returns (bytes32[] memory) {\\n        bytes32[] memory store = _values(set._inner);\\n        bytes32[] memory result;\\n\\n        /// @solidity memory-safe-assembly\\n        assembly {\\n            result := store\\n        }\\n\\n        return result;\\n    }\\n\\n    // AddressSet\\n\\n    struct AddressSet {\\n        Set _inner;\\n    }\\n\\n    /**\\n     * @dev Add a value to a set. O(1).\\n     *\\n     * Returns true if the value was added to the set, that is if it was not\\n     * already present.\\n     */\\n    function add(AddressSet storage set, address value) internal returns (bool) {\\n        return _add(set._inner, bytes32(uint256(uint160(value))));\\n    }\\n\\n    /**\\n     * @dev Removes a value from a set. O(1).\\n     *\\n     * Returns true if the value was removed from the set, that is if it was\\n     * present.\\n     */\\n    function remove(AddressSet storage set, address value) internal returns (bool) {\\n        return _remove(set._inner, bytes32(uint256(uint160(value))));\\n    }\\n\\n    /**\\n     * @dev Returns true if the value is in the set. O(1).\\n     */\\n    function contains(AddressSet storage set, address value) internal view returns (bool) {\\n        return _contains(set._inner, bytes32(uint256(uint160(value))));\\n    }\\n\\n    /**\\n     * @dev Returns the number of values in the set. O(1).\\n     */\\n    function length(AddressSet storage set) internal view returns (uint256) {\\n        return _length(set._inner);\\n    }\\n\\n    /**\\n     * @dev Returns the value stored at position `index` in the set. O(1).\\n     *\\n     * Note that there are no guarantees on the ordering of values inside the\\n     * array, and it may change when more values are added or removed.\\n     *\\n     * Requirements:\\n     *\\n     * - `index` must be strictly less than {length}.\\n     */\\n    function at(AddressSet storage set, uint256 index) internal view returns (address) {\\n        return address(uint160(uint256(_at(set._inner, index))));\\n    }\\n\\n    /**\\n     * @dev Return the entire set in an array\\n     *\\n     * WARNING: This operation will copy the entire storage to memory, which can be quite expensive. This is designed\\n     * to mostly be used by view accessors that are queried without any gas fees. Developers should keep in mind that\\n     * this function has an unbounded cost, and using it as part of a state-changing function may render the function\\n     * uncallable if the set grows to a point where copying to memory consumes too much gas to fit in a block.\\n     */\\n    function values(AddressSet storage set) internal view returns (address[] memory) {\\n        bytes32[] memory store = _values(set._inner);\\n        address[] memory result;\\n\\n        /// @solidity memory-safe-assembly\\n        assembly {\\n            result := store\\n        }\\n\\n        return result;\\n    }\\n\\n    // UintSet\\n\\n    struct UintSet {\\n        Set _inner;\\n    }\\n\\n    /**\\n     * @dev Add a value to a set. O(1).\\n     *\\n     * Returns true if the value was added to the set, that is if it was not\\n     * already present.\\n     */\\n    function add(UintSet storage set, uint256 value) internal returns (bool) {\\n        return _add(set._inner, bytes32(value));\\n    }\\n\\n    /**\\n     * @dev Removes a value from a set. O(1).\\n     *\\n     * Returns true if the value was removed from the set, that is if it was\\n     * present.\\n     */\\n    function remove(UintSet storage set, uint256 value) internal returns (bool) {\\n        return _remove(set._inner, bytes32(value));\\n    }\\n\\n    /**\\n     * @dev Returns true if the value is in the set. O(1).\\n     */\\n    function contains(UintSet storage set, uint256 value) internal view returns (bool) {\\n        return _contains(set._inner, bytes32(value));\\n    }\\n\\n    /**\\n     * @dev Returns the number of values in the set. O(1).\\n     */\\n    function length(UintSet storage set) internal view returns (uint256) {\\n        return _length(set._inner);\\n    }\\n\\n    /**\\n     * @dev Returns the value stored at position `index` in the set. O(1).\\n     *\\n     * Note that there are no guarantees on the ordering of values inside the\\n     * array, and it may change when more values are added or removed.\\n     *\\n     * Requirements:\\n     *\\n     * - `index` must be strictly less than {length}.\\n     */\\n    function at(UintSet storage set, uint256 index) internal view returns (uint256) {\\n        return uint256(_at(set._inner, index));\\n    }\\n\\n    /**\\n     * @dev Return the entire set in an array\\n     *\\n     * WARNING: This operation will copy the entire storage to memory, which can be quite expensive. This is designed\\n     * to mostly be used by view accessors that are queried without any gas fees. Developers should keep in mind that\\n     * this function has an unbounded cost, and using it as part of a state-changing function may render the function\\n     * uncallable if the set grows to a point where copying to memory consumes too much gas to fit in a block.\\n     */\\n    function values(UintSet storage set) internal view returns (uint256[] memory) {\\n        bytes32[] memory store = _values(set._inner);\\n        uint256[] memory result;\\n\\n        /// @solidity memory-safe-assembly\\n        assembly {\\n            result := store\\n        }\\n\\n        return result;\\n    }\\n}\",\"keccak256\":\"0x1644df1d3839dedcc404a165434d83c6039b11bc3c3650a581d53ae35cf7e855\",\"license\":\"MIT\"},\"contracts/lib/Strings.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev String operations.\\n */\\nlibrary Strings {\\n    bytes16 private constant _HEX_SYMBOLS = \\\"0123456789abcdef\\\";\\n\\n    /**\\n     * @dev Converts a `uint256` to its ASCII `string` decimal representation.\\n     */\\n    function toString(uint256 value) internal pure returns (string memory) {\\n        // Inspired by OraclizeAPI's implementation - MIT licence\\n        // https://github.com/oraclize/ethereum-api/blob/b42146b063c7d6ee1358846c198246239e9360e8/oraclizeAPI_0.4.25.sol\\n\\n        if (value == 0) {\\n            return \\\"0\\\";\\n        }\\n        uint256 temp = value;\\n        uint256 digits;\\n        while (temp != 0) {\\n            digits++;\\n            temp /= 10;\\n        }\\n        bytes memory buffer = new bytes(digits);\\n        while (value != 0) {\\n            digits -= 1;\\n            buffer[digits] = bytes1(uint8(48 + uint256(value % 10)));\\n            value /= 10;\\n        }\\n        return string(buffer);\\n    }\\n\\n    /**\\n     * @dev Converts a `uint256` to its ASCII `string` hexadecimal representation.\\n     */\\n    function toHexString(uint256 value) internal pure returns (string memory) {\\n        if (value == 0) {\\n            return \\\"0x00\\\";\\n        }\\n        uint256 temp = value;\\n        uint256 length = 0;\\n        while (temp != 0) {\\n            length++;\\n            temp >>= 8;\\n        }\\n        return toHexString(value, length);\\n    }\\n\\n    /**\\n     * @dev Converts a `uint256` to its ASCII `string` hexadecimal representation with fixed length.\\n     */\\n    function toHexString(uint256 value, uint256 length) internal pure returns (string memory) {\\n        bytes memory buffer = new bytes(2 * length + 2);\\n        buffer[0] = \\\"0\\\";\\n        buffer[1] = \\\"x\\\";\\n        for (uint256 i = 2 * length + 1; i > 1; --i) {\\n            buffer[i] = _HEX_SYMBOLS[value & 0xf];\\n            value >>= 4;\\n        }\\n        require(value == 0, \\\"Strings: hex length insufficient\\\");\\n        return string(buffer);\\n    }\\n}\\n\",\"keccak256\":\"0x391d3ba97ab6856a16b225d6ee29617ad15ff00db70f3b4df1ab5ea33aa47c9d\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60806040523480156200001157600080fd5b5060405162001c4438038062001c448339810160408190526200003491620003cb565b620000607f73e573f9566d61418a34d5de3ff49360f9c51fec37f7486551670290f6285dab8362000081565b6200006d60008462000081565b6200007881620000c4565b50505062000503565b6200009882826200025760201b620006351760201c565b6000828152600160209081526040909120620000bf9183906200063f62000263821b17901c565b505050565b60005b8151811015620002535762000108828281518110620000ea57620000ea620004c5565b602002602001015160036200028360201b620006611790919060201c565b156200015a5760405162461bcd60e51b815260206004820152601c60248201527f4164647265737320616c726561647920696e20626c61636b6c69737400000000604482015260640160405180910390fd5b600160026000848481518110620001755762000175620004c5565b60200260200101516001600160a01b03166001600160a01b0316815260200190815260200160002060006101000a81548160ff021916908315150217905550620001eb828281518110620001cd57620001cd620004c5565b602002602001015160036200026360201b6200063f1790919060201c565b50818181518110620002015762000201620004c5565b60200260200101516001600160a01b03167fffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b85560405160405180910390a2806200024a81620004db565b915050620000c7565b5050565b620002538282620002a6565b60006200027a836001600160a01b03841662000346565b90505b92915050565b6001600160a01b038116600090815260018301602052604081205415156200027a565b6000828152602081815260408083206001600160a01b038516845290915290205460ff1662000253576000828152602081815260408083206001600160a01b03851684529091529020805460ff19166001179055620003023390565b6001600160a01b0316816001600160a01b0316837f2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d60405160405180910390a45050565b60008181526001830160205260408120546200038f575081546001818101845560008481526020808220909301849055845484825282860190935260409020919091556200027d565b5060006200027d565b80516001600160a01b0381168114620003b057600080fd5b919050565b634e487b7160e01b600052604160045260246000fd5b600080600060608486031215620003e157600080fd5b620003ec8462000398565b92506020620003fd81860162000398565b60408601519093506001600160401b03808211156200041b57600080fd5b818701915087601f8301126200043057600080fd5b815181811115620004455762000445620003b5565b8060051b604051601f19603f830116810181811085821117156200046d576200046d620003b5565b60405291825284820192508381018501918a8311156200048c57600080fd5b938501935b82851015620004b557620004a58562000398565b8452938501939285019262000491565b8096505050505050509250925092565b634e487b7160e01b600052603260045260246000fd5b600060018201620004fc57634e487b7160e01b600052601160045260246000fd5b5060010190565b61173180620005136000396000f3fe608060405234801561001057600080fd5b50600436106101005760003560e01c80639346afac11610097578063ca15c87311610066578063ca15c87314610274578063d547741f14610287578063e61e90f61461029a578063fe575a87146102ad57600080fd5b80639346afac1461023c578063935eb35f14610244578063a217fddf14610257578063a4b5fa561461025f57600080fd5b806347e63380116100d357806347e633801461018657806389daf799146101ad5780639010d07c146101c057806391d14854146101f857600080fd5b806301ffc9a714610105578063248a9ca31461012d5780632f2ff15d1461015e57806336568abe14610173575b600080fd5b61011861011336600461125e565b6102d0565b60405190151581526020015b60405180910390f35b61015061013b3660046112a0565b60009081526020819052604090206001015490565b604051908152602001610124565b61017161016c3660046112e2565b61032c565b005b6101716101813660046112e2565b610353565b6101507f73e573f9566d61418a34d5de3ff49360f9c51fec37f7486551670290f6285dab81565b6101716101bb36600461135a565b610375565b6101d36101ce36600461139c565b610420565b60405173ffffffffffffffffffffffffffffffffffffffff9091168152602001610124565b6101186102063660046112e2565b60009182526020828152604080842073ffffffffffffffffffffffffffffffffffffffff93909316845291905290205460ff1690565b61015061043f565b61017161025236600461135a565b610450565b610150600081565b610267610524565b60405161012491906113be565b6101506102823660046112a0565b610530565b6101716102953660046112e2565b610547565b6101716102a8366004611418565b610551565b6101186102bb366004611484565b60026020526000908152604090205460ff1681565b60007fffffffff0000000000000000000000000000000000000000000000000000000082167f5a05180f000000000000000000000000000000000000000000000000000000001480610326575061032682610690565b92915050565b6103368282610727565b600082815260016020526040902061034e908261063f565b505050565b61035d828261074d565b600082815260016020526040902061034e90826107fc565b3360009081527f738678fe42df6a4211eb7628ac9b056229141839eb4f4ef4cc249f1d36e8c921602052604090205460ff16610412576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152600f60248201527f4d7573742062652075706461746572000000000000000000000000000000000060448201526064015b60405180910390fd5b61041c828261081e565b5050565b600082815260016020526040812061043890836109e6565b9392505050565b600061044b60036109f2565b905090565b3360009081527f738678fe42df6a4211eb7628ac9b056229141839eb4f4ef4cc249f1d36e8c921602052604090205460ff166104e8576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152600f60248201527f4d757374206265207570646174657200000000000000000000000000000000006044820152606401610409565b61041c8282808060200260200160405190810160405280939291908181526020018383602002808284376000920191909152506109fc92505050565b606061044b6003610ba9565b6000818152600160205260408120610326906109f2565b61035d8282610bb6565b3360009081527f738678fe42df6a4211eb7628ac9b056229141839eb4f4ef4cc249f1d36e8c921602052604090205460ff166105e9576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152600f60248201527f4d757374206265207570646174657200000000000000000000000000000000006044820152606401610409565b6105f3828261081e565b61062f8484808060200260200160405190810160405280939291908181526020018383602002808284376000920191909152506109fc92505050565b50505050565b61041c8282610bdc565b60006104388373ffffffffffffffffffffffffffffffffffffffff8416610ccc565b73ffffffffffffffffffffffffffffffffffffffff811660009081526001830160205260408120541515610438565b60007fffffffff0000000000000000000000000000000000000000000000000000000082167f7965db0b00000000000000000000000000000000000000000000000000000000148061032657507f01ffc9a7000000000000000000000000000000000000000000000000000000007fffffffff00000000000000000000000000000000000000000000000000000000831614610326565b6000828152602081905260409020600101546107438133610d1b565b61034e8383610bdc565b73ffffffffffffffffffffffffffffffffffffffff811633146107f2576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152602f60248201527f416363657373436f6e74726f6c3a2063616e206f6e6c792072656e6f756e636560448201527f20726f6c657320666f722073656c6600000000000000000000000000000000006064820152608401610409565b61041c8282610deb565b60006104388373ffffffffffffffffffffffffffffffffffffffff8416610ea2565b60005b8181101561034e5761085b83838381811061083e5761083e61149f565b90506020020160208101906108539190611484565b600390610661565b6108c1576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601860248201527f41646472657373206e6f7420696e20626c61636b6c69737400000000000000006044820152606401610409565b600260008484848181106108d7576108d761149f565b90506020020160208101906108ec9190611484565b73ffffffffffffffffffffffffffffffffffffffff168152602081019190915260400160002080547fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0016905561096a83838381811061094d5761094d61149f565b90506020020160208101906109629190611484565b6003906107fc565b5082828281811061097d5761097d61149f565b90506020020160208101906109929190611484565b73ffffffffffffffffffffffffffffffffffffffff167f117e3210bb9aa7d9baff172026820255c6f6c30ba8999d1c2fd88e2848137c4e60405160405180910390a2806109de816114fd565b915050610821565b60006104388383610f95565b6000610326825490565b60005b815181101561041c57610a35828281518110610a1d57610a1d61149f565b6020026020010151600361066190919063ffffffff16565b15610a9c576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601c60248201527f4164647265737320616c726561647920696e20626c61636b6c697374000000006044820152606401610409565b600160026000848481518110610ab457610ab461149f565b602002602001015173ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff021916908315150217905550610b3a828281518110610b2257610b2261149f565b6020026020010151600361063f90919063ffffffff16565b50818181518110610b4d57610b4d61149f565b602002602001015173ffffffffffffffffffffffffffffffffffffffff167fffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b85560405160405180910390a280610ba1816114fd565b9150506109ff565b6060600061043883610fbf565b600082815260208190526040902060010154610bd28133610d1b565b61034e8383610deb565b60008281526020818152604080832073ffffffffffffffffffffffffffffffffffffffff8516845290915290205460ff1661041c5760008281526020818152604080832073ffffffffffffffffffffffffffffffffffffffff85168452909152902080547fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00166001179055610c6e3390565b73ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16837f2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d60405160405180910390a45050565b6000818152600183016020526040812054610d1357508154600181810184556000848152602080822090930184905584548482528286019093526040902091909155610326565b506000610326565b60008281526020818152604080832073ffffffffffffffffffffffffffffffffffffffff8516845290915290205460ff1661041c57610d718173ffffffffffffffffffffffffffffffffffffffff16601461101b565b610d7c83602061101b565b604051602001610d8d929190611559565b604080517fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe0818403018152908290527f08c379a0000000000000000000000000000000000000000000000000000000008252610409916004016115da565b60008281526020818152604080832073ffffffffffffffffffffffffffffffffffffffff8516845290915290205460ff161561041c5760008281526020818152604080832073ffffffffffffffffffffffffffffffffffffffff8516808552925280832080547fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0016905551339285917ff6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b9190a45050565b60008181526001830160205260408120548015610f8b576000610ec660018361162b565b8554909150600090610eda9060019061162b565b9050818114610f3f576000866000018281548110610efa57610efa61149f565b9060005260206000200154905080876000018481548110610f1d57610f1d61149f565b6000918252602080832090910192909255918252600188019052604090208390555b8554869080610f5057610f5061163e565b600190038181906000526020600020016000905590558560010160008681526020019081526020016000206000905560019350505050610326565b6000915050610326565b6000826000018281548110610fac57610fac61149f565b9060005260206000200154905092915050565b60608160000180548060200260200160405190810160405280929190818152602001828054801561100f57602002820191906000526020600020905b815481526020019060010190808311610ffb575b50505050509050919050565b6060600061102a83600261166d565b611035906002611684565b67ffffffffffffffff81111561104d5761104d611697565b6040519080825280601f01601f191660200182016040528015611077576020820181803683370190505b5090507f3000000000000000000000000000000000000000000000000000000000000000816000815181106110ae576110ae61149f565b60200101907effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916908160001a9053507f7800000000000000000000000000000000000000000000000000000000000000816001815181106111115761111161149f565b60200101907effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916908160001a905350600061114d84600261166d565b611158906001611684565b90505b60018111156111f5577f303132333435363738396162636465660000000000000000000000000000000085600f16601081106111995761119961149f565b1a60f81b8282815181106111af576111af61149f565b60200101907effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916908160001a90535060049490941c936111ee816116c6565b905061115b565b508315610438576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820181905260248201527f537472696e67733a20686578206c656e67746820696e73756666696369656e746044820152606401610409565b60006020828403121561127057600080fd5b81357fffffffff000000000000000000000000000000000000000000000000000000008116811461043857600080fd5b6000602082840312156112b257600080fd5b5035919050565b803573ffffffffffffffffffffffffffffffffffffffff811681146112dd57600080fd5b919050565b600080604083850312156112f557600080fd5b82359150611305602084016112b9565b90509250929050565b60008083601f84011261132057600080fd5b50813567ffffffffffffffff81111561133857600080fd5b6020830191508360208260051b850101111561135357600080fd5b9250929050565b6000806020838503121561136d57600080fd5b823567ffffffffffffffff81111561138457600080fd5b6113908582860161130e565b90969095509350505050565b600080604083850312156113af57600080fd5b50508035926020909101359150565b6020808252825182820181905260009190848201906040850190845b8181101561140c57835173ffffffffffffffffffffffffffffffffffffffff16835292840192918401916001016113da565b50909695505050505050565b6000806000806040858703121561142e57600080fd5b843567ffffffffffffffff8082111561144657600080fd5b6114528883890161130e565b9096509450602087013591508082111561146b57600080fd5b506114788782880161130e565b95989497509550505050565b60006020828403121561149657600080fd5b610438826112b9565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b60007fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff820361152e5761152e6114ce565b5060010190565b60005b83811015611550578181015183820152602001611538565b50506000910152565b7f416363657373436f6e74726f6c3a206163636f756e7420000000000000000000815260008351611591816017850160208801611535565b7f206973206d697373696e6720726f6c652000000000000000000000000000000060179184019182015283516115ce816028840160208801611535565b01602801949350505050565b60208152600082518060208401526115f9816040850160208701611535565b601f017fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe0169190910160400192915050565b81810381811115610326576103266114ce565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052603160045260246000fd5b8082028115828204841417610326576103266114ce565b80820180821115610326576103266114ce565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b6000816116d5576116d56114ce565b507fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff019056fea2646970667358221220c1a6db0461ca1cf8c82b9c47a9026d3054a4580806737ef06ac156adc58817c964736f6c63430008110033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106101005760003560e01c80639346afac11610097578063ca15c87311610066578063ca15c87314610274578063d547741f14610287578063e61e90f61461029a578063fe575a87146102ad57600080fd5b80639346afac1461023c578063935eb35f14610244578063a217fddf14610257578063a4b5fa561461025f57600080fd5b806347e63380116100d357806347e633801461018657806389daf799146101ad5780639010d07c146101c057806391d14854146101f857600080fd5b806301ffc9a714610105578063248a9ca31461012d5780632f2ff15d1461015e57806336568abe14610173575b600080fd5b61011861011336600461125e565b6102d0565b60405190151581526020015b60405180910390f35b61015061013b3660046112a0565b60009081526020819052604090206001015490565b604051908152602001610124565b61017161016c3660046112e2565b61032c565b005b6101716101813660046112e2565b610353565b6101507f73e573f9566d61418a34d5de3ff49360f9c51fec37f7486551670290f6285dab81565b6101716101bb36600461135a565b610375565b6101d36101ce36600461139c565b610420565b60405173ffffffffffffffffffffffffffffffffffffffff9091168152602001610124565b6101186102063660046112e2565b60009182526020828152604080842073ffffffffffffffffffffffffffffffffffffffff93909316845291905290205460ff1690565b61015061043f565b61017161025236600461135a565b610450565b610150600081565b610267610524565b60405161012491906113be565b6101506102823660046112a0565b610530565b6101716102953660046112e2565b610547565b6101716102a8366004611418565b610551565b6101186102bb366004611484565b60026020526000908152604090205460ff1681565b60007fffffffff0000000000000000000000000000000000000000000000000000000082167f5a05180f000000000000000000000000000000000000000000000000000000001480610326575061032682610690565b92915050565b6103368282610727565b600082815260016020526040902061034e908261063f565b505050565b61035d828261074d565b600082815260016020526040902061034e90826107fc565b3360009081527f738678fe42df6a4211eb7628ac9b056229141839eb4f4ef4cc249f1d36e8c921602052604090205460ff16610412576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152600f60248201527f4d7573742062652075706461746572000000000000000000000000000000000060448201526064015b60405180910390fd5b61041c828261081e565b5050565b600082815260016020526040812061043890836109e6565b9392505050565b600061044b60036109f2565b905090565b3360009081527f738678fe42df6a4211eb7628ac9b056229141839eb4f4ef4cc249f1d36e8c921602052604090205460ff166104e8576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152600f60248201527f4d757374206265207570646174657200000000000000000000000000000000006044820152606401610409565b61041c8282808060200260200160405190810160405280939291908181526020018383602002808284376000920191909152506109fc92505050565b606061044b6003610ba9565b6000818152600160205260408120610326906109f2565b61035d8282610bb6565b3360009081527f738678fe42df6a4211eb7628ac9b056229141839eb4f4ef4cc249f1d36e8c921602052604090205460ff166105e9576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152600f60248201527f4d757374206265207570646174657200000000000000000000000000000000006044820152606401610409565b6105f3828261081e565b61062f8484808060200260200160405190810160405280939291908181526020018383602002808284376000920191909152506109fc92505050565b50505050565b61041c8282610bdc565b60006104388373ffffffffffffffffffffffffffffffffffffffff8416610ccc565b73ffffffffffffffffffffffffffffffffffffffff811660009081526001830160205260408120541515610438565b60007fffffffff0000000000000000000000000000000000000000000000000000000082167f7965db0b00000000000000000000000000000000000000000000000000000000148061032657507f01ffc9a7000000000000000000000000000000000000000000000000000000007fffffffff00000000000000000000000000000000000000000000000000000000831614610326565b6000828152602081905260409020600101546107438133610d1b565b61034e8383610bdc565b73ffffffffffffffffffffffffffffffffffffffff811633146107f2576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152602f60248201527f416363657373436f6e74726f6c3a2063616e206f6e6c792072656e6f756e636560448201527f20726f6c657320666f722073656c6600000000000000000000000000000000006064820152608401610409565b61041c8282610deb565b60006104388373ffffffffffffffffffffffffffffffffffffffff8416610ea2565b60005b8181101561034e5761085b83838381811061083e5761083e61149f565b90506020020160208101906108539190611484565b600390610661565b6108c1576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601860248201527f41646472657373206e6f7420696e20626c61636b6c69737400000000000000006044820152606401610409565b600260008484848181106108d7576108d761149f565b90506020020160208101906108ec9190611484565b73ffffffffffffffffffffffffffffffffffffffff168152602081019190915260400160002080547fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0016905561096a83838381811061094d5761094d61149f565b90506020020160208101906109629190611484565b6003906107fc565b5082828281811061097d5761097d61149f565b90506020020160208101906109929190611484565b73ffffffffffffffffffffffffffffffffffffffff167f117e3210bb9aa7d9baff172026820255c6f6c30ba8999d1c2fd88e2848137c4e60405160405180910390a2806109de816114fd565b915050610821565b60006104388383610f95565b6000610326825490565b60005b815181101561041c57610a35828281518110610a1d57610a1d61149f565b6020026020010151600361066190919063ffffffff16565b15610a9c576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601c60248201527f4164647265737320616c726561647920696e20626c61636b6c697374000000006044820152606401610409565b600160026000848481518110610ab457610ab461149f565b602002602001015173ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff021916908315150217905550610b3a828281518110610b2257610b2261149f565b6020026020010151600361063f90919063ffffffff16565b50818181518110610b4d57610b4d61149f565b602002602001015173ffffffffffffffffffffffffffffffffffffffff167fffa4e6181777692565cf28528fc88fd1516ea86b56da075235fa575af6a4b85560405160405180910390a280610ba1816114fd565b9150506109ff565b6060600061043883610fbf565b600082815260208190526040902060010154610bd28133610d1b565b61034e8383610deb565b60008281526020818152604080832073ffffffffffffffffffffffffffffffffffffffff8516845290915290205460ff1661041c5760008281526020818152604080832073ffffffffffffffffffffffffffffffffffffffff85168452909152902080547fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00166001179055610c6e3390565b73ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16837f2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d60405160405180910390a45050565b6000818152600183016020526040812054610d1357508154600181810184556000848152602080822090930184905584548482528286019093526040902091909155610326565b506000610326565b60008281526020818152604080832073ffffffffffffffffffffffffffffffffffffffff8516845290915290205460ff1661041c57610d718173ffffffffffffffffffffffffffffffffffffffff16601461101b565b610d7c83602061101b565b604051602001610d8d929190611559565b604080517fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe0818403018152908290527f08c379a0000000000000000000000000000000000000000000000000000000008252610409916004016115da565b60008281526020818152604080832073ffffffffffffffffffffffffffffffffffffffff8516845290915290205460ff161561041c5760008281526020818152604080832073ffffffffffffffffffffffffffffffffffffffff8516808552925280832080547fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0016905551339285917ff6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b9190a45050565b60008181526001830160205260408120548015610f8b576000610ec660018361162b565b8554909150600090610eda9060019061162b565b9050818114610f3f576000866000018281548110610efa57610efa61149f565b9060005260206000200154905080876000018481548110610f1d57610f1d61149f565b6000918252602080832090910192909255918252600188019052604090208390555b8554869080610f5057610f5061163e565b600190038181906000526020600020016000905590558560010160008681526020019081526020016000206000905560019350505050610326565b6000915050610326565b6000826000018281548110610fac57610fac61149f565b9060005260206000200154905092915050565b60608160000180548060200260200160405190810160405280929190818152602001828054801561100f57602002820191906000526020600020905b815481526020019060010190808311610ffb575b50505050509050919050565b6060600061102a83600261166d565b611035906002611684565b67ffffffffffffffff81111561104d5761104d611697565b6040519080825280601f01601f191660200182016040528015611077576020820181803683370190505b5090507f3000000000000000000000000000000000000000000000000000000000000000816000815181106110ae576110ae61149f565b60200101907effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916908160001a9053507f7800000000000000000000000000000000000000000000000000000000000000816001815181106111115761111161149f565b60200101907effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916908160001a905350600061114d84600261166d565b611158906001611684565b90505b60018111156111f5577f303132333435363738396162636465660000000000000000000000000000000085600f16601081106111995761119961149f565b1a60f81b8282815181106111af576111af61149f565b60200101907effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff1916908160001a90535060049490941c936111ee816116c6565b905061115b565b508315610438576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820181905260248201527f537472696e67733a20686578206c656e67746820696e73756666696369656e746044820152606401610409565b60006020828403121561127057600080fd5b81357fffffffff000000000000000000000000000000000000000000000000000000008116811461043857600080fd5b6000602082840312156112b257600080fd5b5035919050565b803573ffffffffffffffffffffffffffffffffffffffff811681146112dd57600080fd5b919050565b600080604083850312156112f557600080fd5b82359150611305602084016112b9565b90509250929050565b60008083601f84011261132057600080fd5b50813567ffffffffffffffff81111561133857600080fd5b6020830191508360208260051b850101111561135357600080fd5b9250929050565b6000806020838503121561136d57600080fd5b823567ffffffffffffffff81111561138457600080fd5b6113908582860161130e565b90969095509350505050565b600080604083850312156113af57600080fd5b50508035926020909101359150565b6020808252825182820181905260009190848201906040850190845b8181101561140c57835173ffffffffffffffffffffffffffffffffffffffff16835292840192918401916001016113da565b50909695505050505050565b6000806000806040858703121561142e57600080fd5b843567ffffffffffffffff8082111561144657600080fd5b6114528883890161130e565b9096509450602087013591508082111561146b57600080fd5b506114788782880161130e565b95989497509550505050565b60006020828403121561149657600080fd5b610438826112b9565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b60007fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff820361152e5761152e6114ce565b5060010190565b60005b83811015611550578181015183820152602001611538565b50506000910152565b7f416363657373436f6e74726f6c3a206163636f756e7420000000000000000000815260008351611591816017850160208801611535565b7f206973206d697373696e6720726f6c652000000000000000000000000000000060179184019182015283516115ce816028840160208801611535565b01602801949350505050565b60208152600082518060208401526115f9816040850160208701611535565b601f017fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe0169190910160400192915050565b81810381811115610326576103266114ce565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052603160045260246000fd5b8082028115828204841417610326576103266114ce565b80820180821115610326576103266114ce565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b6000816116d5576116d56114ce565b507fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff019056fea2646970667358221220c1a6db0461ca1cf8c82b9c47a9026d3054a4580806737ef06ac156adc58817c964736f6c63430008110033",
+  "devdoc": {
+    "details": "List of blacklisted addresses on Ethereum",
+    "kind": "dev",
+    "methods": {
+      "addToBlacklist(address[])": {
+        "params": {
+          "newBlacklistEntries": "Addresses to add to the blacklist"
+        }
+      },
+      "blacklist()": {
+        "returns": {
+          "_0": "address[] Current blacklist"
+        }
+      },
+      "blacklistLength()": {
+        "returns": {
+          "_0": "uint256 Current blacklist length"
+        }
+      },
+      "constructor": {
+        "params": {
+          "_admin": "Blacklist admin",
+          "_blacklist": "Initial blacklist",
+          "_updater": "Initial updater address"
+        }
+      },
+      "getRoleAdmin(bytes32)": {
+        "details": "Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. To change a role's admin, use {_setRoleAdmin}."
+      },
+      "getRoleMember(bytes32,uint256)": {
+        "details": "Returns one of the accounts that have `role`. `index` must be a value between 0 and {getRoleMemberCount}, non-inclusive. Role bearers are not sorted in any particular way, and their ordering may change at any point. WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure you perform all queries on the same block. See the following https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296[forum post] for more information."
+      },
+      "getRoleMemberCount(bytes32)": {
+        "details": "Returns the number of accounts that have `role`. Can be used together with {getRoleMember} to enumerate all bearers of a role."
+      },
+      "grantRole(bytes32,address)": {
+        "details": "Overload {grantRole} to track enumerable memberships"
+      },
+      "hasRole(bytes32,address)": {
+        "details": "Returns `true` if `account` has been granted `role`."
+      },
+      "removeFromBlacklist(address[])": {
+        "params": {
+          "blacklistEntriesToRemove": "Addresses to remove from the blacklist"
+        }
+      },
+      "renounceRole(bytes32,address)": {
+        "details": "Overload {renounceRole} to track enumerable memberships"
+      },
+      "revokeRole(bytes32,address)": {
+        "details": "Overload {revokeRole} to track enumerable memberships"
+      },
+      "supportsInterface(bytes4)": {
+        "details": "See {IERC165-supportsInterface}."
+      },
+      "updateBlacklist(address[],address[])": {
+        "params": {
+          "addressesToAdd": "Addresses to add to the blacklist",
+          "addressesToRemove": "Addresses to remove from the blacklist"
+        }
+      }
+    },
+    "title": "Blacklist",
+    "version": 1
+  },
+  "userdoc": {
+    "events": {
+      "Blacklisted(address)": {
+        "notice": "Event emitted when an address is added to the blacklist"
+      },
+      "UnBlacklisted(address)": {
+        "notice": "Event emitted when an address is removed from the blacklist"
+      }
+    },
+    "kind": "user",
+    "methods": {
+      "UPDATER_ROLE()": {
+        "notice": "Permissioned role able to add and remove addresses from the blacklist"
+      },
+      "addToBlacklist(address[])": {
+        "notice": "Add addresses to the blacklist"
+      },
+      "blacklist()": {
+        "notice": "Get current blacklist"
+      },
+      "blacklistLength()": {
+        "notice": "Get current blacklist length"
+      },
+      "constructor": {
+        "notice": "Construct a new Blacklist contract"
+      },
+      "isBlacklisted(address)": {
+        "notice": "We use a mapping in addition to an EnumerableSet to make reading from the storage addresses easier"
+      },
+      "removeFromBlacklist(address[])": {
+        "notice": "Remove addresses from the blacklist"
+      },
+      "updateBlacklist(address[],address[])": {
+        "notice": "Add and remove addresses from the blacklist in a single transaction"
+      }
+    },
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 351,
+        "contract": "contracts/Blacklist.sol:Blacklist",
+        "label": "_roles",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_mapping(t_bytes32,t_struct(RoleData)346_storage)"
+      },
+      {
+        "astId": 679,
+        "contract": "contracts/Blacklist.sol:Blacklist",
+        "label": "_roleMembers",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_bytes32,t_struct(AddressSet)1205_storage)"
+      },
+      {
+        "astId": 14,
+        "contract": "contracts/Blacklist.sol:Blacklist",
+        "label": "isBlacklisted",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_mapping(t_address,t_bool)"
+      },
+      {
+        "astId": 18,
+        "contract": "contracts/Blacklist.sol:Blacklist",
+        "label": "blacklistSet",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_struct(AddressSet)1205_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_bytes32)dyn_storage": {
+        "base": "t_bytes32",
+        "encoding": "dynamic_array",
+        "label": "bytes32[]",
+        "numberOfBytes": "32"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_mapping(t_address,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_bytes32,t_struct(AddressSet)1205_storage)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => struct EnumerableSet.AddressSet)",
+        "numberOfBytes": "32",
+        "value": "t_struct(AddressSet)1205_storage"
+      },
+      "t_mapping(t_bytes32,t_struct(RoleData)346_storage)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => struct AccessControl.RoleData)",
+        "numberOfBytes": "32",
+        "value": "t_struct(RoleData)346_storage"
+      },
+      "t_mapping(t_bytes32,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_struct(AddressSet)1205_storage": {
+        "encoding": "inplace",
+        "label": "struct EnumerableSet.AddressSet",
+        "members": [
+          {
+            "astId": 1204,
+            "contract": "contracts/Blacklist.sol:Blacklist",
+            "label": "_inner",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_struct(Set)890_storage"
+          }
+        ],
+        "numberOfBytes": "64"
+      },
+      "t_struct(RoleData)346_storage": {
+        "encoding": "inplace",
+        "label": "struct AccessControl.RoleData",
+        "members": [
+          {
+            "astId": 343,
+            "contract": "contracts/Blacklist.sol:Blacklist",
+            "label": "members",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_mapping(t_address,t_bool)"
+          },
+          {
+            "astId": 345,
+            "contract": "contracts/Blacklist.sol:Blacklist",
+            "label": "adminRole",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_bytes32"
+          }
+        ],
+        "numberOfBytes": "64"
+      },
+      "t_struct(Set)890_storage": {
+        "encoding": "inplace",
+        "label": "struct EnumerableSet.Set",
+        "members": [
+          {
+            "astId": 885,
+            "contract": "contracts/Blacklist.sol:Blacklist",
+            "label": "_values",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_array(t_bytes32)dyn_storage"
+          },
+          {
+            "astId": 889,
+            "contract": "contracts/Blacklist.sol:Blacklist",
+            "label": "_indexes",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_mapping(t_bytes32,t_uint256)"
+          }
+        ],
+        "numberOfBytes": "64"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}
