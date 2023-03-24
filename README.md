@@ -8,7 +8,7 @@ Currently, the only sanctioned addresses come from the OFAC SDN list, which is m
 
 Set the stage for interacting with the contract:
 
-```
+```ts
 import { ethers } from 'ethers'
 
 const providerUrl = ''
@@ -36,7 +36,7 @@ const sanctionListContract = new ethers.Contract(
 
 Note: Updater private key is not required for the following.
 
-```
+```ts
 const _sanctionList: string[] = await sanctionListContract.blacklist()
 const sanctionList = _sanctionList.map((entry) => entry.toLowerCase())
 console.log([...sanctionList].sort())
@@ -48,7 +48,7 @@ Note: to make updates to the sanction list you will need to have the private key
 
 Update sanctions list with both additions and removals:
 
-```
+```ts
 const newAddresses = ["0x....., 0x....."]
 const deletedAddresses = ["0x....., 0x....."]
 const feeData = await provider.getFeeData()
@@ -73,7 +73,7 @@ console.log(JSON.stringify({
 
 Add addresses to sanctions list:
 
-```
+```ts
 const newAddresses = ["0x....., 0x....."]
 const feeData = await provider.getFeeData()
 const nonce = await updater.getTransactionCount()
@@ -97,7 +97,7 @@ console.log(JSON.stringify({
 
 Remove addresses from sanctions list:
 
-```
+```ts
 const deletedAddresses = ["0x....., 0x....."]
 const feeData = await provider.getFeeData()
 const nonce = await updater.getTransactionCount()
